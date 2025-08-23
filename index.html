@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sketch Pad</title>
+</head>
+<body>
+    <!-- inital main parent container -->
+    <div class="flex-container">
+        <div class="title"><h1>SketchPad</h1>
+        <div class="content"> 
+
+          
+            <div class="board"></div>
+
+            <!--buttons-->
+            <div class="button">
+                <button>Black</button>
+                <button>White</button>
+                <button>Random</button>
+                <button>Reset</button>
+            </div>
+                <!-- input box for size: uses onchange to use user input for value in input box -->
+                <input 
+                    type="text" 
+                    placeholder="Size of board" 
+                    value="" 
+                    onchange="changeSize(this.value)"
+                />
+                <button>Set Size</button>
+        </div>
+        </div>
+    </div>
+    <script src="javascript.js"></script>
+</body>
+</html>
