@@ -1,3 +1,7 @@
+let color = "black";
+createSketchBoard(16);
+
+
 function createSketchBoard(size) {
     // DOM creates board of user input size
     let board = document.querySelector(".board");
@@ -10,7 +14,7 @@ function createSketchBoard(size) {
     let boardSize = size ** 2;
     for (let i = 0; i < boardSize; i++) {
         let square = document.createElement("div");
-        square.addEventListener(`click`, colorSquare);
+        square.addEventListener(`mouseover`, colorSquare);
         square.style.backgroundColor = "white";
         board.insertAdjacentElement('beforeend', square);
     }
@@ -24,6 +28,29 @@ function changeSize(userInput) {
     }
 }
 
+
+function randomColor() {
+    let pallete = [ "red", "orange", "yellow", 
+                    "green", "blue", "purple" ];
+    let num = (Math.floor(Math.random() * pallete.length));
+    return pallete[num];
+}
+
 function colorSquare() {
-    this.style.backgroundColor = "black";
+    if (color == 'random') {
+        this.style.backgroundColor = randomColor();
+    } else {
+        this.style.backgroundColor = color; 
+    }
+}
+
+function changeColor(choice) {
+    color = choice;
+}
+
+function resetBoard() {
+    let board = document.querySelector(".board");
+    let squares = board.querySelectorAll("div");
+    squares.forEach((div) => div.remove());
+    createSketchBoard(16);
 }
