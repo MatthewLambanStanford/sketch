@@ -1,4 +1,6 @@
 let color = "black";
+let click = true;
+
 createSketchBoard(16);
 
 
@@ -37,12 +39,18 @@ function randomColor() {
 }
 
 function colorSquare() {
-    if (color == 'random') {
-        this.style.backgroundColor = randomColor();
-    } else {
-        this.style.backgroundColor = color; 
+    if (click) {
+        if (color == 'random') {
+            this.style.backgroundColor = randomColor();
+        } else {
+            this.style.backgroundColor = color; 
+        }
     }
 }
+
+document.querySelector("body").addEventListener(`click`, () => {
+    click = !click;
+})
 
 function changeColor(choice) {
     color = choice;
