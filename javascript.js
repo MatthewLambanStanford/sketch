@@ -26,7 +26,7 @@ function changeSize(userInput) {
     if (userInput >= 2 && userInput <= 150) {
         createSketchBoard(userInput);
     } else {
-        console.log("ERROR: Please keep input  2 <= input <= 150");
+        console.log("None");
     }
 }
 
@@ -48,8 +48,13 @@ function colorSquare() {
     }
 }
 
-document.querySelector("body").addEventListener(`click`, () => {
+document.querySelector('.board').addEventListener(`click`, () => {
     click = !click;
+    if (click) {
+        document.querySelector('.mode').textContent = "Mode: Coloring On (click to toggle)" 
+    } else {
+        document.querySelector('.mode').textContent = "Mode: Coloring Off (click to toggle)"
+    }
 })
 
 function changeColor(choice) {
